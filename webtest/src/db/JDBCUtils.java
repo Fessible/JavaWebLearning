@@ -20,8 +20,14 @@ public class JDBCUtils {
     /**
      * 释放连接
      */
-    public static void releaseConnection(){
-
+    public static void releaseConnection(Connection connection) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

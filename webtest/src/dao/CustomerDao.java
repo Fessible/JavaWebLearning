@@ -1,10 +1,16 @@
 package dao;
 
+import bean.CriteriaCustomer;
 import bean.Customer;
 
 import java.util.List;
 
 public interface CustomerDao {
+    /**
+     * 模糊查询
+     */
+    List<Customer> getWithIndistinct(CriteriaCustomer criteriaCustomer);
+
     /**
      * 获取所有信息
      */
