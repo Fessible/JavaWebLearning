@@ -44,8 +44,29 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void addCustomer(HttpServletRequest req, HttpServletResponse resp) {
+        //1.获取表单参数
+
+        //2.1 getCountWithName()来查看
+        //2.2 如果值大于0 转发响应newCustomer.jsp，需要保持原数据信息，并显示错误消息
+//        req.getRequestDispatcher("/jsp/addCustomer.jsp");
 
 
+        //2.查看名字是否被占用
+
+
+
+    }
+
+    private void delete(HttpServletRequest req, HttpServletResponse response) throws IOException {
+        String strId = req.getParameter("id");
+        int id = 0;
+        //防止id转换错误,如果错误仍然执行query.do
+        try {
+            id = Integer.parseInt(strId);
+            customerDao.delete(id);
+        } catch (Exception e) {
+        }
+        response.sendRedirect("query.do");
     }
 
     private void query(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

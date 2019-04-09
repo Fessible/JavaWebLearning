@@ -11,6 +11,17 @@
 <head>
     <title>$Title$</title>
 </head>
+<script src="scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".delete").click(function () {
+            //通过这个按钮找到包含name的td，第一个parent找到td，第二个parent找到tr
+            var content = $(this).parent().parent().find("td:eq(1)").text().replace("\n","");
+            var flag = confirm("确定要删除" + content + "的信息吗？");
+            return flag;
+        })
+    })
+</script>
 <body>
 <form method="post" action="query.do">
     <table>
@@ -52,16 +63,13 @@
         for (Customer customer : customers) {
     %>
     <tr>
-        <td><%= customer.getId()%>
+        <td><%= customer.getId()%></td>
+        <td><%= customer.getName()%></td>
+        <td><%= customer.getPhone()%></td>
+        <td><%= customer.getAddress()%></td>
+        <td><a href="update.do">UPDATE</a>
+            <a href="delete.do?id=<%=customer.getId()%>" class="delete">DELETE</a>
         </td>
-        <td><%= customer.getName()%>
-        </td>
-        <td><%= customer.getPhone()%>
-        </td>
-        <td><%= customer.getAddress()%>
-        </td>
-        <td><a href="update.do">UPDATE</a> <a href="update.do">DELETE</a></td>
-
     </tr>
 
     <%
