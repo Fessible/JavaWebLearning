@@ -4,7 +4,7 @@ import bean.Customer;
 
 import java.util.List;
 
-public class CustomerDaoImple extends DAO<Customer> implements CustomerDao  {
+public class CustomerDaoImp extends DAO<Customer> implements CustomerDao  {
     @Override
     public List<Customer> getAll() {
         return null;
