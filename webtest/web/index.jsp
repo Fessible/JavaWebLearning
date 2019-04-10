@@ -39,7 +39,8 @@
         </tr>
         <tr>
             <td><input type="submit" value="query"></td>
-            <td><a href="jsp/addCustomer.jsp"></a></td>
+            <%--进入到jsp目录--%>
+            <td><a href="jsp/addCustomer.jsp">addCustomer</a></td>
             <%--<td><input type="button" value="add" onclick="window.location.href='addCustomer.do'"></td>--%>
         </tr>
     </table>

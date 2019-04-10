@@ -6,8 +6,19 @@ import dao.CustomerDao;
 import dao.CustomerDaoImp;
 import org.junit.Test;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class CustomerDaoImpTest {
     CustomerDao customerDao = new CustomerDaoImp();
+
+    @Test
+    public void testPattern(){
+        Pattern pattern = Pattern.compile("\\/(\\w+).do$");
+        Matcher matcher = pattern.matcher("/jsp/addCustomer.do");
+        matcher.find();
+        System.out.println(matcher.group(1));
+    }
 
     @Test
     public void getWithIndistinct() {
@@ -41,6 +52,7 @@ public class CustomerDaoImpTest {
 
     @Test
     public void getCountWithName() {
-        customerDao.getCountWithName("张三");
+        long count = customerDao.getCountWithName("小明");
+        System.out.println(count);
     }
 }

@@ -6,6 +6,16 @@ public class Customer {
     public Integer id;
     public String address;
 
+    public Customer(String name, String address, String phone) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
+    public Customer() {
+
+    }
+
     public String getPhone() {
         return phone;
     }

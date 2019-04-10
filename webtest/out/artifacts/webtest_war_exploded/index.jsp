@@ -39,7 +39,8 @@
         </tr>
         <tr>
             <td><input type="submit" value="query"></td>
-            <td><input type="button" value="add" onclick="window.location.href='addCustomer.do'"></td>
+            <td><a href="jsp/addCustomer.jsp">addCustomer</a></td>
+            <%--<td><input type="button" value="add" onclick="window.location.href='addCustomer.do'"></td>--%>
         </tr>
     </table>
 </form>
