@@ -11,19 +11,20 @@
 <head>
     <title>$Title$</title>
 </head>
-<script src="scripts/jquery-3.3.1.js"></script>
+<script src="../scripts/jquery-3.3.1.js"></script>
 <script type="text/javascript">
     $(function () {
         $(".delete").click(function () {
             //通过这个按钮找到包含name的td，第一个parent找到td，第二个parent找到tr
-            var content = $(this).parent().parent().find("td:eq(1)").text().replace("\n","");
+            var content = $(this).parent().parent().find("td:eq(1)").text().replace("\n", "");
             var flag = confirm("确定要删除" + content + "的信息吗？");
             return flag;
         })
     })
 </script>
 <body>
-<form method="post" action="query.do">
+<%--从jsp页面会到主页面--%>
+<form method="post" action="../query.do">
     <table>
         <tr>
             <td>Address:</td>
@@ -39,8 +40,8 @@
         </tr>
         <tr>
             <td><input type="submit" value="query"></td>
-            <%--进入到jsp目录--%>
-            <td><a href="jsp/addCustomer.jsp">addCustomer</a></td>
+            <%--当前目录下的jsp--%>
+            <td><a href="addCustomer.jsp">addCustomer</a></td>
             <%--<td><input type="button" value="add" onclick="window.location.href='addCustomer.do'"></td>--%>
         </tr>
     </table>
@@ -65,11 +66,15 @@
         for (Customer customer : customers) {
     %>
     <tr>
-        <td><%= customer.getId()%></td>
-        <td><%= customer.getName()%></td>
-        <td><%= customer.getPhone()%></td>
-        <td><%= customer.getAddress()%></td>
-        <td><a href="update.do">UPDATE</a>
+        <td><%= customer.getId()%>
+        </td>
+        <td><%= customer.getName()%>
+        </td>
+        <td><%= customer.getPhone()%>
+        </td>
+        <td><%= customer.getAddress()%>
+        </td>
+        <td><a href="edit.do?id=<%=customer.getId()%>">UPDATE</a>
             <a href="delete.do?id=<%=customer.getId()%>" class="delete">DELETE</a>
         </td>
     </tr>

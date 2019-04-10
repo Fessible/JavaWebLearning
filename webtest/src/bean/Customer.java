@@ -1,10 +1,10 @@
 package bean;
 
 public class Customer {
-    public String phone;
-    public String name;
-    public Integer id;
-    public String address;
+    private String phone;
+    private String name;
+    private Integer id;
+    private String address;
 
     public Customer(String name, String address, String phone) {
         this.name = name;

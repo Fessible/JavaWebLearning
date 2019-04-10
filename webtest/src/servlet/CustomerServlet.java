@@ -34,7 +34,7 @@ public class CustomerServlet extends HttpServlet {
         System.out.println(path);
 
         Pattern pattern = Pattern.compile("\\/(\\w+).do$");
-        Matcher matcher = pattern.matcher("/jsp/addCustomer.do");
+        Matcher matcher = pattern.matcher(path);
         String methodName = null;
         if (matcher.find()) {
             methodName = matcher.group(1);
@@ -48,7 +48,59 @@ public class CustomerServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             //添加错误页面
-            resp.sendRedirect("error.jsp");
+            resp.sendRedirect("jsp/error.jsp");
+        }
+    }
+
+    private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.获取请求参数
+        String idStr = request.getParameter("id");
+        int id = 0;
+        String forwardPath = "jsp/error.jsp";
+        //防止id转换错误,如果错误仍然执行query.do
+        try {
+            id = Integer.parseInt(idStr);
+            //2.获取id对应的参数对象,得到Customer，然后转发
+            Customer customer = customerDao.get(id);
+            if (customer != null) {
+                forwardPath = "jsp/update.jsp";
+                request.setAttribute("customer", customer);
+            }
+
+        } catch (Exception e) {
+        }
+
+        request.getRequestDispatcher(forwardPath).forward(request, response);
+
+    }
+
+    private void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.获取表单数据
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        String oldName = request.getParameter("oldName");
+        String address = request.getParameter("address");
+        String phone = request.getParameter("phone");
+
+        //2.检查name是否已经存在
+        if (!name.equals(oldName)) {
+            long count = customerDao.getCountWithName(name);
+            //检查数据库中时否已经存在
+            if (count > 0) {
+                request.setAttribute("message", "用户" + name + "已经存在");
+                //转发到原来的界面
+                request.getRequestDispatcher("jsp/update.jsp").forward(request, response);
+                return;
+            }
+
+            //数据库中不存在，就更新用户
+            Customer customer = new Customer(name, phone, address);
+            customer.setId(Integer.parseInt(id));
+            customerDao.update(customer);
+
+            response.sendRedirect("query.do");
+        } else {
+            request.getRequestDispatcher("jsp/update.jsp").forward(request, response);
         }
     }
 
@@ -65,12 +117,12 @@ public class CustomerServlet extends HttpServlet {
         //2.2 如果值大于0 转发响应newCustomer.jsp，需要保持原数据信息，并显示错误消息
 //        req.getRequestDispatcher("/jsp/addCustomer.jsp");
         if (count > 0) {
-            req.setAttribute("message","用户名"+name+"已被占用，请重新选择");
+            req.setAttribute("message", "用户名" + name + "已被占用，请重新选择");
             req.getRequestDispatcher("addCustomer.jsp").forward(req, resp);
             return;
         }
 
-        Customer customer = new Customer(name,address,phone);
+        Customer customer = new Customer(name, address, phone);
         customerDao.save(customer);
         //3.如果不存在，则添加Customer，并回到添加成功界面
         //因为在当前路径 /jsp，所以直接使用success
@@ -101,9 +153,7 @@ public class CustomerServlet extends HttpServlet {
         //2.设置数据
         req.setAttribute("customers", customerList);
         //3.页面转发
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.getRequestDispatcher("jsp/index.jsp").forward(req, resp);
     }
 
-    private void deleteCustomer(HttpServletRequest req, HttpServletResponse resp) {
-    }
 }

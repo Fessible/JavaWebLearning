@@ -19,20 +19,25 @@ public interface CustomerDao {
     /**
      * 根据id进行查询
      */
-    public Customer get(Integer id);
+    Customer get(Integer id);
 
     /**
      * 删除
      */
-    public void delete(Integer id);
+    void delete(Integer id);
 
     /**
      * 保存Customer
      */
-    public void save(Customer customer);
+    void save(Customer customer);
 
     /**
      * 根据name查询记录数
      */
-    public long getCountWithName(String name);
+    long getCountWithName(String name);
+
+    /**
+     * 更新用户信息
+     */
+    void update(Customer customer);
 }

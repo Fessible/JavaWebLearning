@@ -55,4 +55,11 @@ public class CustomerDaoImpTest {
         long count = customerDao.getCountWithName("小明");
         System.out.println(count);
     }
+
+    @Test
+    public void testUpdate(){
+        Customer customer = new Customer("王五","小里","");
+        customer.setId(1);
+        customerDao.update(customer);
+    }
 }

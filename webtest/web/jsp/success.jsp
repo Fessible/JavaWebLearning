@@ -12,6 +12,6 @@
 </head>
 <body>
 <h2>添加成功</h2>
-<a href="../index.jsp">返回</a>
+<a href="index.jsp">返回</a>
 </body>
 </html>
