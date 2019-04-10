@@ -34,5 +34,5 @@ public interface CustomerDao {
     /**
      * 根据name查询记录数
      */
-    public void getCountWithName(String name);
+    public long getCountWithName(String name);
 }

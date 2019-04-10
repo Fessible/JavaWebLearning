@@ -11,19 +11,33 @@
     <title>AddCustomer</title>
 </head>
 <body>
+<%
+    Object message = request.getAttribute("message");
+    if (message != null) {
+
+%>
+<font color="red"><%=message%></font>
+<%
+    }
+
+%>
 <form method="post" action="addCustomer.do">
     <table>
         <tr>
             <td>Address:</td>
-            <td><input type="text" name="address"></td>
+            <td><input type="text" name="address"
+                       value="<%=request.getParameter("address")==null?"":request.getParameter("address")%>"></td>
         </tr>
         <tr>
             <td>Phone:</td>
-            <td><input type="text" name="phone"></td>
+            <td><input type="text" name="phone"
+                       value="<%=request.getParameter("phone")==null?"":request.getParameter("phone")%>"></td>
         </tr>
         <tr>
             <td>Name:</td>
-            <td><input type="text" name="name"></td>
+            <td><input type="text" name="name"
+                       value="<%=request.getParameter("name")==null?"":request.getParameter("name")%>"
+            ></td>
         </tr>
         <tr>
             <td><input type="submit" value="add"></td>

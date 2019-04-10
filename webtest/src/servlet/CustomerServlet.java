@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CustomerServlet extends HttpServlet {
 
@@ -30,7 +32,14 @@ public class CustomerServlet extends HttpServlet {
 
         String path = req.getServletPath();
         System.out.println(path);
-        String methodName = path.substring(path.indexOf("/") + 1, path.indexOf("."));
+
+        Pattern pattern = Pattern.compile("\\/(\\w+).do$");
+        Matcher matcher = pattern.matcher("/jsp/addCustomer.do");
+        String methodName = null;
+        if (matcher.find()) {
+            methodName = matcher.group(1);
+        }
+//        String methodName = path.substring(path.indexOf("/") + 1, path.indexOf("."));
         //通过反射调用对应的方法
         Method method = null;
         try {
@@ -43,18 +52,29 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private void addCustomer(HttpServletRequest req, HttpServletResponse resp) {
+    private void addCustomer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //1.获取表单参数
-
-        //2.1 getCountWithName()来查看
-        //2.2 如果值大于0 转发响应newCustomer.jsp，需要保持原数据信息，并显示错误消息
-//        req.getRequestDispatcher("/jsp/addCustomer.jsp");
-
+        String name = req.getParameter("name");
+        String address = req.getParameter("address");
+        String phone = req.getParameter("phone");
 
         //2.查看名字是否被占用
+        //2.1 getCountWithName()来查看
+        int count = (int) customerDao.getCountWithName(name);
 
+        //2.2 如果值大于0 转发响应newCustomer.jsp，需要保持原数据信息，并显示错误消息
+//        req.getRequestDispatcher("/jsp/addCustomer.jsp");
+        if (count > 0) {
+            req.setAttribute("message","用户名"+name+"已被占用，请重新选择");
+            req.getRequestDispatcher("addCustomer.jsp").forward(req, resp);
+            return;
+        }
 
-
+        Customer customer = new Customer(name,address,phone);
+        customerDao.save(customer);
+        //3.如果不存在，则添加Customer，并回到添加成功界面
+        //因为在当前路径 /jsp，所以直接使用success
+        resp.sendRedirect("success.jsp");
     }
 
     private void delete(HttpServletRequest req, HttpServletResponse response) throws IOException {
