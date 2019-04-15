@@ -39,5 +39,6 @@
     <orderEntry type="library" name="mysql-connector-java-8.0.15" level="project" />
     <orderEntry type="library" name="jdbcutils-2.2.0" level="project" />
     <orderEntry type="library" name="commons-dbutils-1.7" level="project" />
+    <orderEntry type="library" name="jstl-1.2" level="project" />
   </component>
 </module>

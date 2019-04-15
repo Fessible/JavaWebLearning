@@ -7,6 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+
 <html>
 <head>
     <title>$Title$</title>
@@ -47,42 +49,65 @@
     </table>
 </form>
 <br>
-<%
-    List<Customer> customers = (List<Customer>) request.getAttribute("customers");
-    if (customers == null || customers.isEmpty()) {
-        return;
-    }
-%>
+<%--<%--%>
+<%--    List<Customer> customers = (List<Customer>) request.getAttribute("customers");--%>
+<%--    if (customers == null || customers.isEmpty()) {--%>
+<%--        return;--%>
+<%--    }--%>
+<%--%>--%>
 
-<table border="1" cellspacing="0">
-    <tr>
-        <th>ID</th>
-        <th>NAME</th>
-        <th>PHONE</th>
-        <th>ADDRESS</th>
-        <th>UPDATE/DELETE</th>
-    </tr>
-    <%
-        for (Customer customer : customers) {
-    %>
-    <tr>
-        <td><%= customer.getId()%>
-        </td>
-        <td><%= customer.getName()%>
-        </td>
-        <td><%= customer.getPhone()%>
-        </td>
-        <td><%= customer.getAddress()%>
-        </td>
-        <td><a href="edit.do?id=<%=customer.getId()%>">UPDATE</a>
-            <a href="delete.do?id=<%=customer.getId()%>" class="delete">DELETE</a>
-        </td>
-    </tr>
+<c:if test="${!empty requestScope.customers}">
 
-    <%
-        }
-    %>
-</table>
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PHONE</th>
+            <th>ADDRESS</th>
+            <th>UPDATE/DELETE</th>
+        </tr>
+
+        <c:forEach items="${requestScope.customers}" var="customer">
+            <tr>
+                <td>
+                        ${customer.id}
+                </td>
+                <td> ${customer.name}
+                </td>
+                <td> ${ customer.phone}
+                </td>
+                <td>${ customer.address}
+                </td>
+                <td><a href="edit.do?id=${customer.id}">UPDATE</a>
+                    <a href="delete.do?id=${customer.id}" class="delete">DELETE</a>
+                </td>
+            </tr>
+
+        </c:forEach>
+
+            <%--    <%--%>
+            <%--        for (Customer customer : customers) {--%>
+            <%--    %>--%>
+            <%--    <tr>--%>
+            <%--        <td><%= customer.getId()%>--%>
+            <%--        </td>--%>
+            <%--        <td><%= customer.getName()%>--%>
+            <%--        </td>--%>
+            <%--        <td><%= customer.getPhone()%>--%>
+            <%--        </td>--%>
+            <%--        <td><%= customer.getAddress()%>--%>
+            <%--        </td>--%>
+            <%--        <td><a href="edit.do?id=<%=customer.getId()%>">UPDATE</a>--%>
+            <%--            <a href="delete.do?id=<%=customer.getId()%>" class="delete">DELETE</a>--%>
+            <%--        </td>--%>
+            <%--    </tr>--%>
+
+            <%--    <%--%>
+            <%--        }--%>
+            <%--    %>--%>
+    </table>
+</c:if>
+
 
 </body>
 
