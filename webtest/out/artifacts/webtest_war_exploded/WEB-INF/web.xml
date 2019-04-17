@@ -29,4 +29,31 @@
         <url-pattern>/jsp/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/filter/*</url-pattern>
+    </filter-mapping>
+
+<!--    用户信息放入到session中的健的名字-->
+<context-param>
+    <param-name>userSessionKey</param-name>
+    <param-value>SESSIONKEY</param-value>
+</context-param>
+
+<!--    若未登录，重定向页面-->
+<context-param>
+    <param-name>redirectPage</param-name>
+    <param-value>/filter/login.jsp</param-value>
+</context-param>
+
+<!--    不需要拦截的URL列表-->
+<context-param>
+    <param-name>unCheckedUrls</param-name>
+    <param-value>/filter/a.jsp,/filter/login.jsp,/filter/list.jsp</param-value>
+</context-param>
+
 </web-app>
