@@ -12,13 +12,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public class FileUploadServlet extends HttpServlet {
 
     private static final String FILE_PATH = "/WEB-INF/files/";
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
@@ -34,35 +34,53 @@ public class FileUploadServlet extends HttpServlet {
         System.out.println(maxsize);
         System.out.println(totalMaxSize);
         ServletFileUpload upload = getServletUpload();
-try{
-        //把需要上传的FileItem放入Map中
-    Map<String, FileItem> uploadFiles = new HashMap<>();
+        try {
+            //把需要上传的FileItem放入Map中
+            Map<String, FileItem> uploadFiles = new HashMap<>();
 
 
-    //解析请求，得到FileItem的集合
-    List<FileItem> items = upload.parseRequest(req);
+            //解析请求，得到FileItem的集合
+            List<FileItem> items = upload.parseRequest(req);
 
-    //构建FileUploadBean的集合，同事填充uploadFiles
-    List<FileUploadBean> beans = buildFileUploadBeans(items, uploadFiles);
-        //校验扩展名
-    vaidateExtName(beans);
+            //构建FileUploadBean的集合，同事填充uploadFiles
+            List<FileUploadBean> beans = buildFileUploadBeans(items, uploadFiles);
+            //校验扩展名
+            vaidateExtName(beans);
 
-        //校验文件大小，解析的时候已经校验，我们只需要通过异常的到结果
+            //校验文件大小，解析的时候已经校验，我们只需要通过异常的到结果
 
-        //进行文件的上传操作
-    upload(uploadFiles);
+            //进行文件的上传操作
+            upload(uploadFiles);
 
-        //把上传的信息保存到数据库中
-    saveBeans(beans);
-     } catch (FileUploadException e) {
-    e.printStackTrace();
-}
+            //把上传的信息保存到数据库中
+            saveBeans(beans);
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+        }
     }
 
     private void saveBeans(List<FileUploadBean> beans) {
     }
 
-    private void upload(Map<String, FileItem> uploadFiles) {
+    private void upload(Map<String, FileItem> uploadFiles) throws IOException {
+        for (Map.Entry<String, FileItem> uploadFile : uploadFiles.entrySet()) {
+            String filePath = uploadFile.getKey();
+            FileItem fileItem = uploadFile.getValue();
+            upload(filePath, fileItem.getInputStream());
+        }
+    }
+
+    private void upload(String filePath, InputStream inputStream) throws IOException {
+        OutputStream outputStream = new FileOutputStream(filePath);
+
+        byte[] bytes = new byte[1024];
+        int len = 0;
+        while ((len = inputStream.read(bytes)) != -1) {
+            outputStream.write(bytes, 0, len);
+        }
+
+        inputStream.close();
+        outputStream.close();
     }
 
     private void vaidateExtName(List<FileUploadBean> beans) {
@@ -87,7 +105,7 @@ try{
             String desc = descs.get("desc" + index);
             String filePath = getFilePath(fileName);
 
-            FileUploadBean bean = new FileUploadBean(fileName,filePath,desc);
+            FileUploadBean bean = new FileUploadBean(fileName, filePath, desc);
             beans.add(bean);
             upload.put(filePath, item);
         }
