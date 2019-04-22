@@ -25,6 +25,7 @@
     })
 </script>
 <body>
+<<<<<<< HEAD
 
 <%
     Customer customer = (Customer) session.getAttribute("customer");
@@ -37,6 +38,8 @@
     }
 %>
 
+=======
+>>>>>>> 2650e9d977186ee62c1cbc92402afe0853733516
 <%--从jsp页面会到主页面--%>
 <form method="post" action="../query.do">
     <table>
