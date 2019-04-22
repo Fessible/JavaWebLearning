@@ -1,6 +1,12 @@
 package bean;
 
-public class Customer {
+import javax.servlet.http.HttpSessionActivationListener;
+import javax.servlet.http.HttpSessionBindingEvent;
+import javax.servlet.http.HttpSessionBindingListener;
+import javax.servlet.http.HttpSessionEvent;
+import java.io.Serializable;
+
+public class Customer implements HttpSessionBindingListener, Serializable, HttpSessionActivationListener {
     private String phone;
     private String name;
     private Integer id;
@@ -13,7 +19,6 @@ public class Customer {
     }
 
     public Customer() {
-
     }
 
     public String getPhone() {
@@ -56,5 +61,25 @@ public class Customer {
                 ", id=" + id +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    @Override
+    public void valueBound(HttpSessionBindingEvent httpSessionBindingEvent) {
+
+    }
+
+    @Override
+    public void valueUnbound(HttpSessionBindingEvent httpSessionBindingEvent) {
+
+    }
+
+    @Override
+    public void sessionWillPassivate(HttpSessionEvent httpSessionEvent) {
+        System.out.println("写入到磁盘中");
+    }
+
+    @Override
+    public void sessionDidActivate(HttpSessionEvent httpSessionEvent) {
+        System.out.println("从磁盘中读取");
     }
 }

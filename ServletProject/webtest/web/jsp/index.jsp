@@ -25,6 +25,18 @@
     })
 </script>
 <body>
+
+<%
+    Customer customer = (Customer) session.getAttribute("customer");
+    if (customer == null) {
+        customer = new Customer();
+        session.setAttribute("customer", customer);
+        System.out.println("创建一个customer");
+    } else {
+        System.out.println("从session获得customer");
+    }
+%>
+
 <%--从jsp页面会到主页面--%>
 <form method="post" action="../query.do">
     <table>

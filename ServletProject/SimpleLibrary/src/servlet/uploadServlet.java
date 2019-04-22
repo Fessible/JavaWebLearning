@@ -34,7 +34,9 @@ public class uploadServlet extends HttpServlet {
 // Set factory constraints
         factory.setSizeThreshold(1024 * 500);
         //临时目录
-        File yourTempDirectory = new File("d:\\temp");
+//        File yourTempDirectory = new File("D:\\temp");
+        //mac
+        File yourTempDirectory = new File("/Users/rhm/temp");
         factory.setRepository(yourTempDirectory);
 
 // Create a new file upload handler
@@ -75,12 +77,11 @@ public class uploadServlet extends HttpServlet {
                     byte[] bytes = new byte[1024];
                     int len = 0;
 
-                    fileName = yourTempDirectory + "\\" + fileName;
+                    fileName = yourTempDirectory + File.separator+ fileName;
                     System.out.println("temp" + fileName);
                     OutputStream outputStream = new FileOutputStream(fileName);
 
                     while ((len = inputStream.read(bytes)) != -1) {
-                        System.out.println("len ----" + len);
                         outputStream.write(bytes, 0, len);
                     }
                     inputStream.close();

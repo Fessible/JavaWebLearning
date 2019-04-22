@@ -15,6 +15,11 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
+<<<<<<< HEAD
+    <listener>
+        <listener-class>listener.MyServerletListener</listener-class>
+    </listener>
+=======
     <context-param>
         <param-name>encoding</param-name>
         <param-value>UTF-8</param-value>
@@ -56,4 +61,5 @@
     <param-value>/filter/a.jsp,/filter/login.jsp,/filter/list.jsp</param-value>
 </context-param>
 
+>>>>>>> 2650e9d977186ee62c1cbc92402afe0853733516
 </web-app>
