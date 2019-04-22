@@ -6,16 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8d97918-2ea2-4aee-bf90-c5f9f8fb4643" name="Default" comment="添加jstl标签修改web应用">
-      <change afterPath="$PROJECT_DIR$/src/filter/LoginFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/filter/a.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/filter/b.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/filter/c.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/filter/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/filter/login.jsp" afterDir="false" />
+    <list default="true" id="e8d97918-2ea2-4aee-bf90-c5f9f8fb4643" name="Default" comment="添加filter包，测试登录拦截">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/webtest_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/webtest_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +25,7 @@
         <entry file="file://$PROJECT_DIR$/src/filter/LoginFilter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="226">
-              <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,7 +168,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,7 +220,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -553,7 +545,8 @@
       <workItem from="1555364160042" duration="2350000" />
       <workItem from="1555415731589" duration="3567000" />
       <workItem from="1555426309016" duration="3291000" />
-      <workItem from="1555460527493" duration="220000" />
+      <workItem from="1555460527493" duration="501000" />
+      <workItem from="1555676343456" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="添加c3p0数据连接池">
       <created>1554773786703</created>
@@ -576,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555366357540</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加filter包，测试登录拦截">
+      <created>1555460808035</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1555460808035</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -612,12 +612,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68898000" />
+    <option name="totallyTimeSpent" value="68940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35552195" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36081696" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -660,7 +660,8 @@
     <MESSAGE value="添加c3p0数据连接池" />
     <MESSAGE value="添加模糊查询" />
     <MESSAGE value="添加jstl标签修改web应用" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加jstl标签修改web应用" />
+    <MESSAGE value="添加filter包，测试登录拦截" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加filter包，测试登录拦截" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -869,12 +870,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/c3p0-config.xml">
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="51" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="51" />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/filter/a.jsp">
       <provider selected="true" editor-type-id="text-editor">
@@ -893,7 +894,7 @@
     <entry file="file://$PROJECT_DIR$/src/filter/LoginFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
-          <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
