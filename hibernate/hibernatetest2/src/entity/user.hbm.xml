@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/xsd/hibernate-mapping-3.0.dtd"
+        >
+<hibernate-mapping>
+    <!--配置类和表-->
+    <class name="entity.User" table="t_user">
+        <id name="uid" column="uid">
+            <!--设置数据库id增长策略，native自动增长-->
+            <generator class="native"></generator>
+        </id>
+
+        <property name="username" column="username"></property>
+        <property name="password" column="password"></property>
+        <property name="address" column="address"></property>
+    </class>
+</hibernate-mapping>
