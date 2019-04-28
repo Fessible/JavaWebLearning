@@ -1,5 +1,7 @@
 package test;
 
+import entity.Customer;
+import entity.Salesman;
 import entity.User;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -11,6 +13,68 @@ import utils.HibernateUtils;
 import java.util.List;
 
 public class EntityTest {
+
+    @Test
+    public void testRelation(){
+        SessionFactory sessionFactory = null;
+        Session session = null;
+
+        Transaction transaction = null;
+        try {
+
+            sessionFactory = HibernateUtils.getSessionFactory();
+            session = sessionFactory.openSession();
+
+            transaction = session.beginTransaction();
+
+            //删除操作
+            Salesman salesman = session.get(Salesman.class, 2);
+            session.delete(salesman);
+
+
+
+            //级联添加
+//            Customer customer = new Customer();
+//            customer.setcName("仿效三");
+//
+//            Customer customer2 = new Customer();
+//            customer2.setcName("李晓五");
+//
+//
+//            //销售人员
+//            Salesman salesman = new Salesman();
+//            salesman.setsName("小王");
+//
+//            salesman.getCustomerSet().add(customer);
+//            salesman.getCustomerSet().add(customer2);
+//
+//            session.save(salesman);
+
+
+            //相互操作
+//            salesman.getCustomerSet().add(customer);
+//            salesman.getCustomerSet().add(customer2);
+//
+//            customer.setSalesman(salesman);
+//            customer2.setSalesman(salesman);
+
+
+
+//            session.save(customer);
+//            session.save(customer2);
+//            session.save(salesman);
+
+            transaction.commit();
+
+        } catch (Exception o) {
+
+            transaction.rollback();
+
+        } finally {
+            session.close();
+            sessionFactory.close();
+        }
+    }
 
     @Test
     public void testAdd() {

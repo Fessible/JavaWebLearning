@@ -1104,58 +1104,109 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="277" parent="6" name="t_user"/>
-    <table id="278" parent="6" name="upload"/>
-    <column id="279" parent="277" name="uid">
+    <table id="277" parent="6" name="t_customer"/>
+    <table id="278" parent="6" name="t_salesman"/>
+    <table id="279" parent="6" name="t_user"/>
+    <table id="280" parent="6" name="upload"/>
+    <column id="281" parent="277" name="cid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="277" name="username">
+    <column id="282" parent="277" name="t_cname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="277" name="password">
+    <column id="283" parent="277" name="slid">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="284" parent="277" name="FK6pcj3w567bcatpid64mrd3e1k">
+      <ColNames>slid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="285" parent="277" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>cid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="286" parent="277" name="FK6pcj3w567bcatpid64mrd3e1k">
+      <ColNames>slid</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>t_salesman</RefTableName>
+      <RefColNames>sid</RefColNames>
+    </foreign-key>
+    <column id="287" parent="278" name="sid">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="288" parent="278" name="t_sname">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="289" parent="278" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="290" parent="279" name="uid">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="291" parent="279" name="username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="292" parent="279" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="277" name="address">
+    <column id="293" parent="279" name="address">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="283" parent="277" name="PRIMARY">
+    <key id="294" parent="279" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="284" parent="278" name="id">
+    <column id="295" parent="280" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="278" name="fileName">
+    <column id="296" parent="280" name="fileName">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="278" name="filePath">
+    <column id="297" parent="280" name="filePath">
       <Position>3</Position>
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="278" name="fileDesc">
+    <column id="298" parent="280" name="fileDesc">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="288" parent="278" name="PRIMARY">
+    <key id="299" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
