@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/xsd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Course" table="t_course">
+        <id name="cid" column="cid">
+            <generator class="native"></generator>
+        </id>
+        <property name="courseName" column="t_cname"></property>
+
+        <!--第三张表-->
+        <set name="studentSet" table="course_student" cascade="save-update">
+            <!--对应第三张表的外键-->
+            <key column="courseId"></key>
+            <!--student在第三张表的外键-->
+            <many-to-many class="entity.Student" column="studentId"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -23,6 +23,8 @@
         <mapping resource="entity/user.hbm.xml"></mapping>
         <mapping resource="entity/customer.hbm.xml"></mapping>
         <mapping resource="entity/salesman.hbm.xml"></mapping>
+        <mapping resource="entity/course.hbm.xml"></mapping>
+        <mapping resource="entity/student.hbm.xml"></mapping>
 
     </session-factory>
 </hibernate-configuration>

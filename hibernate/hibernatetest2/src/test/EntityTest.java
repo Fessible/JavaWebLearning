@@ -1,8 +1,6 @@
 package test;
 
-import entity.Customer;
-import entity.Salesman;
-import entity.User;
+import entity.*;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,8 +12,80 @@ import java.util.List;
 
 public class EntityTest {
 
+
     @Test
-    public void testRelation(){
+    public void ManyToMany(){
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        //保存
+        Course course = new Course();
+        course.setCourseName("Java课");
+
+        Course course1 = new Course();
+        course1.setCourseName("政治课");
+
+
+        Student student = new Student();
+        student.setStudentName("小号");
+
+        Student student1 = new Student();
+        student1.setStudentName("皇后");
+
+        //添加级联
+        course.getStudentSet().add(student);
+        course.getStudentSet().add(student1);
+
+        course1.getStudentSet().add(student1);
+
+        session.save(course);
+        session.save(course1);
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+
+    }
+
+    @Test
+    public void changeSalesMan() {
+        SessionFactory sessionFactory = null;
+        Session session = null;
+
+        Transaction transaction = null;
+        try {
+
+            sessionFactory = HibernateUtils.getSessionFactory();
+            session = sessionFactory.openSession();
+
+            transaction = session.beginTransaction();
+
+            //首先获得客户的内容
+            Customer customer = session.get(Customer.class, 2);
+
+            //获得销售人员信息
+            Salesman salesman = session.get(Salesman.class, 1);
+
+            //相互设置
+            customer.setSalesman(salesman);
+            salesman.getCustomerSet().add(customer);
+
+
+            transaction.commit();
+
+        } catch (Exception o) {
+
+            transaction.rollback();
+
+        } finally {
+            session.close();
+            sessionFactory.close();
+        }
+    }
+
+    @Test
+    public void testRelation() {
         SessionFactory sessionFactory = null;
         Session session = null;
 
@@ -30,7 +100,6 @@ public class EntityTest {
             //删除操作
             Salesman salesman = session.get(Salesman.class, 2);
             session.delete(salesman);
-
 
 
             //级联添加
@@ -57,7 +126,6 @@ public class EntityTest {
 //
 //            customer.setSalesman(salesman);
 //            customer2.setSalesman(salesman);
-
 
 
 //            session.save(customer);

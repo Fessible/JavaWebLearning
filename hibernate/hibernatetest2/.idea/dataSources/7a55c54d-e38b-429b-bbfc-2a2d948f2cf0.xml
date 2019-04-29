@@ -1104,109 +1104,180 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="277" parent="6" name="t_customer"/>
-    <table id="278" parent="6" name="t_salesman"/>
-    <table id="279" parent="6" name="t_user"/>
-    <table id="280" parent="6" name="upload"/>
-    <column id="281" parent="277" name="cid">
+    <table id="277" parent="6" name="course_student"/>
+    <table id="278" parent="6" name="t_course"/>
+    <table id="279" parent="6" name="t_customer"/>
+    <table id="280" parent="6" name="t_salesman"/>
+    <table id="281" parent="6" name="t_student"/>
+    <table id="282" parent="6" name="t_user"/>
+    <table id="283" parent="6" name="upload"/>
+    <column id="284" parent="277" name="courseId">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="285" parent="277" name="studentId">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="286" parent="277" name="FK16h7mdw4n99fltdubefh4sy66">
+      <ColNames>studentId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="287" parent="277" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>courseId
+studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="288" parent="277" name="FK3v7us1jl9wlikeyit8vrjcyso">
+      <ColNames>courseId</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>t_course</RefTableName>
+      <RefColNames>cid</RefColNames>
+    </foreign-key>
+    <foreign-key id="289" parent="277" name="FK16h7mdw4n99fltdubefh4sy66">
+      <ColNames>studentId</ColNames>
+      <RefSchemaName>test</RefSchemaName>
+      <RefTableName>t_student</RefTableName>
+      <RefColNames>sid</RefColNames>
+    </foreign-key>
+    <column id="290" parent="278" name="cid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="277" name="t_cname">
+    <column id="291" parent="278" name="t_cname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="277" name="slid">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="284" parent="277" name="FK6pcj3w567bcatpid64mrd3e1k">
-      <ColNames>slid</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="285" parent="277" name="PRIMARY">
+    <key id="292" parent="278" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>cid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="286" parent="277" name="FK6pcj3w567bcatpid64mrd3e1k">
+    <column id="293" parent="279" name="cid">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="294" parent="279" name="t_cname">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="295" parent="279" name="slid">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="296" parent="279" name="FK6pcj3w567bcatpid64mrd3e1k">
+      <ColNames>slid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="297" parent="279" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>cid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="298" parent="279" name="FK6pcj3w567bcatpid64mrd3e1k">
       <ColNames>slid</ColNames>
       <RefSchemaName>test</RefSchemaName>
       <RefTableName>t_salesman</RefTableName>
       <RefColNames>sid</RefColNames>
     </foreign-key>
-    <column id="287" parent="278" name="sid">
+    <column id="299" parent="280" name="sid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="278" name="t_sname">
+    <column id="300" parent="280" name="t_sname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="289" parent="278" name="PRIMARY">
+    <key id="301" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="290" parent="279" name="uid">
+    <column id="302" parent="281" name="sid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="279" name="username">
+    <column id="303" parent="281" name="s_cname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="279" name="password">
+    <key id="304" parent="281" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="305" parent="282" name="uid">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="306" parent="282" name="username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="307" parent="282" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="279" name="address">
+    <column id="308" parent="282" name="address">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="294" parent="279" name="PRIMARY">
+    <key id="309" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>uid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="295" parent="280" name="id">
+    <column id="310" parent="283" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="280" name="fileName">
+    <column id="311" parent="283" name="fileName">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="280" name="filePath">
+    <column id="312" parent="283" name="filePath">
       <Position>3</Position>
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="280" name="fileDesc">
+    <column id="313" parent="283" name="fileDesc">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="299" parent="280" name="PRIMARY">
+    <key id="314" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
