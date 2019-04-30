@@ -1,5 +1,7 @@
 package test;
 
+import entity.Customer;
+import entity.Salesman;
 import entity.Student;
 import entity.User;
 import org.hibernate.Criteria;
@@ -11,6 +13,7 @@ import org.junit.Test;
 import utils.HibernateUtils;
 
 import java.util.List;
+import java.util.Set;
 
 public class HibernateSql {
 
@@ -76,4 +79,44 @@ public class HibernateSql {
         session.close();
         sessionFactory.close();
     }
-}
+
+
+    @Test
+    public void query() {
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        //内连接
+//        Query query= session.createQuery("from entity.Salesman  s inner join  s.customerSet");
+
+        //迫切内连接
+//        Query query = session.createQuery("from entity.Salesman s inner join fetch s.customerSet");
+
+        //左连接
+//        Query query = session.createQuery("from entity.Salesman s left outer join s.customerSet");
+
+//        List list = query.list();
+
+//        User user = session.load(User.class, 2);
+//        user.getAddress();
+
+        //批量抓取
+        Query query = session.createQuery("from entity.Salesman");
+        List<Salesman> users = query.list();
+
+        for (Salesman salesman : users) {
+            System.out.println(salesman.getSid()+"::"+salesman.getsName());
+            Set<Customer> customerSet = salesman.getCustomerSet();
+            for (Customer customer : customerSet) {
+                System.out.println(customer.getCid()+"::"+customer.getcName());
+            }
+        }
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+
+    }
+
+    }

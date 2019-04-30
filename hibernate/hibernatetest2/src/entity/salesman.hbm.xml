@@ -8,7 +8,7 @@
             <generator class="native"></generator>
         </id>
         <property name="sName" column="t_sname"></property>
-        <set name="customerSet" cascade="save-update,delete" >
+        <set name="customerSet" cascade="save-update,delete" batch-size="10" >
             <!--           外键名称-->
             <key column="slid"></key>
             <one-to-many class="entity.Customer"></one-to-many>

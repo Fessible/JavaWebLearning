@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e014691f-6db4-49ad-b6de-aff7a60f1397" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entity/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/course.hbm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/student.hbm.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/HibernateSql.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7a55c54d-e38b-429b-bbfc-2a2d948f2cf0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7a55c54d-e38b-429b-bbfc-2a2d948f2cf0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ffd782a-8c36-4cdb-a29f-8a3d33040809.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8ffd782a-8c36-4cdb-a29f-8a3d33040809.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hibernatetest2/entity/customer.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hibernatetest2/entity/customer.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hibernatetest2/entity/salesman.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hibernatetest2/entity/salesman.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hibernatetest2/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hibernatetest2/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/hibernatetest2/test/EntityTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hibernatetest2/test/EntityTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/customer.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/customer.hbm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/salesman.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/salesman.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/EntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/EntityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/HibernateSql.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/HibernateSql.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,22 +75,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/HibernateSql.java">
+        <entry file="file://$PROJECT_DIR$/src/entity/salesman.hbm.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/user.hbm.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="255">
+              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -112,7 +86,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/entity/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
+            <state relative-caret-position="238">
               <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -126,7 +100,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/course_student">
+        <entry file="file://$PROJECT_DIR$/src/test/HibernateSql.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="115" column="29" lean-forward="true" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#0#20#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_salesman">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -135,7 +122,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/t_course">
+        <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_customer">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -144,7 +131,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/t_student">
+        <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_user">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -184,8 +171,6 @@
         <option value="$PROJECT_DIR$/src/entity/Customer.java" />
         <option value="$PROJECT_DIR$/src/entity/user.hbm.xml" />
         <option value="$PROJECT_DIR$/src/entity/Salesman.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/entity/salesman.hbm.xml" />
         <option value="$PROJECT_DIR$/src/entity/customer.hbm.xml" />
         <option value="$PROJECT_DIR$/src/entity/Course.java" />
         <option value="$PROJECT_DIR$/src/hibernate.cfg.xml" />
@@ -193,7 +178,9 @@
         <option value="$PROJECT_DIR$/src/entity/course.hbm.xml" />
         <option value="$PROJECT_DIR$/src/test/EntityTest.java" />
         <option value="$PROJECT_DIR$/src/entity/Student.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/src/test/HibernateSql.java" />
+        <option value="$PROJECT_DIR$/src/entity/salesman.hbm.xml" />
       </list>
     </option>
   </component>
@@ -274,7 +261,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HibernateSql.queryTest">
+  <component name="RunManager" selected="JUnit.HibernateSql.query">
     <configuration name="EntityTest.ManyToMany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hibernatetest2" />
       <extension name="coverage">
@@ -307,22 +294,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EntityTest.testRelation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="hibernatetest2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.EntityTest" />
-      <option name="METHOD_NAME" value="testRelation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="EntityTest.testStudent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="hibernatetest2" />
       <extension name="coverage">
@@ -334,6 +305,22 @@
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.EntityTest" />
       <option name="METHOD_NAME" value="testStudent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HibernateSql.query" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hibernatetest2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.HibernateSql" />
+      <option name="METHOD_NAME" value="query" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -357,11 +344,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HibernateSql.query" />
         <item itemvalue="JUnit.HibernateSql.queryTest" />
         <item itemvalue="JUnit.EntityTest.ManyToMany" />
         <item itemvalue="JUnit.EntityTest.changeSalesMan" />
         <item itemvalue="JUnit.EntityTest.testStudent" />
-        <item itemvalue="JUnit.EntityTest.testRelation" />
       </list>
     </recent_temporary>
   </component>
@@ -385,49 +372,59 @@
       <workItem from="1556422944166" duration="81000" />
       <workItem from="1556423057001" duration="1781000" />
       <workItem from="1556430137851" duration="1790000" />
-      <workItem from="1556517551431" duration="9171000" />
+      <workItem from="1556517551431" duration="13524000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 08m 38s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 32m 37s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 10m 43s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 33m 04s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 15m 41s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 33m 26s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 17m 03s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 34m 34s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 19m 27s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 36m 38s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 25m 01s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 37m 31s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 27m 26s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 38m 35s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 35m 49s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 40m 04s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 36m 28s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 40m 32s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HibernateSql_queryTest - 2019.04.29 at 16h 40m 02s.xml">
-      <configuration name="HibernateSql.queryTest" configurationId="JUnit" />
+    <history-entry file="HibernateSql_query - 2019.04.30 at 09h 48m 42s.xml">
+      <configuration name="HibernateSql.query" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33659000" />
+    <option name="totallyTimeSpent" value="38012000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="982" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2736954" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2736954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" side_tool="true" />
@@ -438,15 +435,15 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.46404496" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6258427" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32921347" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32921347" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32921347" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32921347" />
@@ -457,13 +454,42 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.24866879" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.24866879" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/HibernateSql.java</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/HibernateSql.java</url>
+          <line>115</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/HibernateSql.java</url>
+          <line>101</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="list" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/entity/Customer.java">
@@ -495,20 +521,6 @@
       </provider>
     </entry>
     <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/t_salesman">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_salesman">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_customer">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -551,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/salesman.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/course_student">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -586,13 +591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/course_student">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/t_course">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -600,7 +598,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/t_student">
+    <entry file="file://$PROJECT_DIR$/src/entity/user.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/course_student">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -617,9 +622,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://7a55c54d-e38b-429b-bbfc-2a2d948f2cf0/schema/test/table/t_student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="238">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -631,20 +643,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/user.hbm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+    <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_customer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://8ffd782a-8c36-4cdb-a29f-8a3d33040809/schema/test/table/t_salesman">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/HibernateSql.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="216">
+          <caret line="115" column="29" lean-forward="true" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#0#20#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/salesman.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
         </state>
       </provider>
     </entry>
