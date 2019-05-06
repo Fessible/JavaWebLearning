@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--    配置c3p0-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--        注入属性-->
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql:///test"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+
+    <!--    配置sessionFactory创建-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!--        指定数据库信息-->
+        <property name="dataSource" ref="dataSource"></property>
+
+<!--        不需要核心配置文件-->
+        <property name="mappingResources">
+            <list>
+                <value>bean/user.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+            </props>
+        </property>
+
+
+        <!--        指定核心文件的位置-->
+<!--        <property name="configLocations" value="classpath:hibernate.cfg.xml"></property>-->
+    </bean>
+
+    <!--    创建Hibernate模板对象-->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <bean id="userDao" class="dao.UserDao">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+
+    <!--    配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <!--    开启事务注解-->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+
+    <bean id="userService" class="dao.UserService">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <!--    <bean id="userDao" class="dao.UserDao">-->
+    <!--        <property name="jdbcTemplate" ref="jdbcTemplate"></property>-->
+    <!--    </bean>-->
+
+    <!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+    <!--        <property name="dataSource" ref="dataSource"></property>-->
+    <!--    </bean>-->
+
+    <!--&lt;!&ndash;    配置事务管理器&ndash;&gt;-->
+    <!--    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+    <!--        <property name="dataSource" ref="dataSource"></property>-->
+    <!--    </bean>-->
+
+
+    <!--&lt;!&ndash;    配置事务注解&ndash;&gt;-->
+    <!--    <tx:annotation-driven transaction-manager="transactionManager"/>-->
+
+
+    <!--    配置事务增强-->
+    <!--<tx:advice id="txadvice" transaction-manager="transactionManager">-->
+    <!--&lt;!&ndash;    做事务操作&ndash;&gt;-->
+    <!--    <tx:attributes>-->
+    <!--&lt;!&ndash;        设置进行事务操作的方法： accountMoney&ndash;&gt;-->
+    <!--        <tx:method name="account*" propagation="REQUIRED"/>-->
+    <!--    </tx:attributes>-->
+    <!--</tx:advice>-->
+
+    <!--    配置切面-->
+    <!--    <aop:config>-->
+    <!--        &lt;!&ndash;        切点&ndash;&gt;-->
+    <!--        <aop:pointcut id="pointcut" expression="execution(*  dao.UserService.*(..))"/>-->
+    <!--        &lt;!&ndash;        切面&ndash;&gt;-->
+    <!--        <aop:advisor advice-ref="txadvice" pointcut-ref="pointcut"></aop:advisor>-->
+    <!--    </aop:config>-->
+
+</beans>
