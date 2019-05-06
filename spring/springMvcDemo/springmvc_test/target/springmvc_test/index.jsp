@@ -14,5 +14,21 @@
 <h1>Hello</h1>
 
 <a href="hello">Hello world!</a>
+
+<form action="user/params" method="post">
+    姓名：<input type="text" name="name"><br>
+    住址：<input type="text" name="address"><br>
+<%--    用户的真实姓名：<input type="text" name="user.username"><br>--%>
+<%--    用户的电话：<input type="text" name="user.phone"><br>--%>
+    <input type="submit">
+</form>
+
+<form action="user/saveCustomer" method="post">
+    姓名：<input type="text" name="name"><br>
+    住址：<input type="text" name="address"><br>
+    用户的真实姓名：<input type="text" name="user.username"><br>
+    用户的电话：<input type="text" name="user.phone"><br>
+    <input type="submit">
+</form>
 </body>
 </html>
