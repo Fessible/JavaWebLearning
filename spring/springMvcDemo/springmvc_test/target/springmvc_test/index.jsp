@@ -26,6 +26,15 @@
 <form action="user/saveCustomer" method="post">
     姓名：<input type="text" name="name"><br>
     住址：<input type="text" name="address"><br>
+    日期: <input type="text" name="date"><br>
+
+    用户姓名: <input type="text" name="userList[0].username"><br>
+    用户电话: <input type="text" name="userList[0].phone"><br>
+
+
+    用户姓名: <input type="text" name="map['one'].username"><br>
+    用户电话: <input type="text" name="map['one'].phone"><br>
+
     用户的真实姓名：<input type="text" name="user.username"><br>
     用户的电话：<input type="text" name="user.phone"><br>
     <input type="submit">
