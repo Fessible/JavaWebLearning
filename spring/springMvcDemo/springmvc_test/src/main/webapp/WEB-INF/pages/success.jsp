@@ -14,8 +14,8 @@
 
 <h2>Success!</h2>
 
-${requestScope.msg}
+${user.username}
+${user.phone}
 
-${sessionScope}
 </body>
 </html>

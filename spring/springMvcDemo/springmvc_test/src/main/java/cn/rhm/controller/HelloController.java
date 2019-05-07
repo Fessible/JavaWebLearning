@@ -1,12 +1,15 @@
 package cn.rhm.controller;
 
 import cn.rhm.entity.Customer;
+import cn.rhm.entity.User;
 import com.sun.tools.internal.ws.wsdl.document.soap.SOAPUse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
+import sun.nio.cs.ext.ISCII91;
 
 @Controller
 @RequestMapping("/user")
@@ -66,7 +69,7 @@ public class HelloController {
     }
 
     @RequestMapping("/getSession")
-    public String getSession(ModelMap modelMap){
+    public String getSession(ModelMap modelMap) {
         String msg = (String) modelMap.get("msg");
         System.out.println(msg);
         return "success";
@@ -79,5 +82,38 @@ public class HelloController {
         return "success";
     }
 
+    @RequestMapping("/voidTest")
+    public void test() {
+        System.out.println("返回值为 void ");
+    }
 
+    @RequestMapping("/modelView")
+    public ModelAndView testModelView(){
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.println("success");
+
+        //模拟从数据库中取出数据
+        User user = new User();
+        user.setUsername("王五");
+        user.setPhone("223434");
+
+        //添加对象
+        modelAndView.addObject("user", user);
+
+        //设置要跳转的页面
+        modelAndView.setViewName("success");
+
+        return modelAndView;
+    }
+
+    @RequestMapping("/forwardtest")
+    public String forward(){
+        System.out.println("执行了forward方法");
+        return "forward:/WEB-INF/pages/success.jsp";
+    }
+
+    @RequestMapping("/redirect")
+    public String redirect(){
+        return "redirect:/index.jsp";
+    }
 }

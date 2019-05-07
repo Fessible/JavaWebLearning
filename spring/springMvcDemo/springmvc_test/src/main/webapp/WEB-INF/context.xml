@@ -24,4 +24,7 @@
 
 <!--    开启spring对mvc注解的支持-->
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+<!--    设置静态资源不过滤-->
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+    <mvc:resources mapping="/images/**" location="/images/"></mvc:resources>
 </beans>

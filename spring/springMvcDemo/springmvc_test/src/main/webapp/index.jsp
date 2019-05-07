@@ -57,5 +57,13 @@
 <a href="user/getSession">get session here</a>
 <a href="user/deleteSession">delete session here</a>
 
+<a href="user/voidTest">void here</a>
+<br>
+<a href="user/modelView">model View</a>
+
+<br>
+<a href="user/forwardtest">forward </a>
+<br>
+<a href="user/redirect">redirect</a>
 </body>
 </html>
