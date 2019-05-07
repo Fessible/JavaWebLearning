@@ -18,17 +18,44 @@
 <form action="user/params" method="post">
     姓名：<input type="text" name="name"><br>
     住址：<input type="text" name="address"><br>
-<%--    用户的真实姓名：<input type="text" name="user.username"><br>--%>
-<%--    用户的电话：<input type="text" name="user.phone"><br>--%>
+    <%--    用户的真实姓名：<input type="text" name="user.username"><br>--%>
+    <%--    用户的电话：<input type="text" name="user.phone"><br>--%>
     <input type="submit">
 </form>
 
 <form action="user/saveCustomer" method="post">
     姓名：<input type="text" name="name"><br>
     住址：<input type="text" name="address"><br>
+    日期: <input type="text" name="date"><br>
+
+    用户姓名: <input type="text" name="userList[0].username"><br>
+    用户电话: <input type="text" name="userList[0].phone"><br>
+
+
+    用户姓名: <input type="text" name="map['one'].username"><br>
+    用户电话: <input type="text" name="map['one'].phone"><br>
+
     用户的真实姓名：<input type="text" name="user.username"><br>
     用户的电话：<input type="text" name="user.phone"><br>
     <input type="submit">
 </form>
+
+
+<form action="user/testParam" method="post">
+    姓名：<input type="text" name="cName"><br>
+    <input type="submit">
+</form>
+
+<form action="user/say" method="post">
+    姓名：<input type="text" name="cName"><br>
+    <input type="submit">
+</form>
+
+<a href="user/sayTest/200">click here</a>
+<a href="user/cookieTest">CookieTest here</a>
+<a href="user/save">save here</a>
+<a href="user/getSession">get session here</a>
+<a href="user/deleteSession">delete session here</a>
+
 </body>
 </html>
