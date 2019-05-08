@@ -114,4 +114,9 @@ public class HelloController {
     public String redirect(){
         return "redirect:/index.jsp";
     }
+
+    @RequestMapping("/testIntercept")
+    public String testIntercept(){
+        return "success";
+    }
 }

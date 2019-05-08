@@ -69,6 +69,10 @@
 <br>
 <a href="testException">testException</a>
 
+
+<br>
+<a href="user/testIntercept">testIntercept</a>
+
 <br>
 </body>
 </html>
