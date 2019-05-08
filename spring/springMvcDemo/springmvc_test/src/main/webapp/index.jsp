@@ -18,8 +18,8 @@
 <form action="user/params" method="post">
     姓名：<input type="text" name="name"><br>
     住址：<input type="text" name="address"><br>
-<%--    用户的真实姓名：<input type="text" name="user.username"><br>--%>
-<%--    用户的电话：<input type="text" name="user.phone"><br>--%>
+    <%--    用户的真实姓名：<input type="text" name="user.username"><br>--%>
+    <%--    用户的电话：<input type="text" name="user.phone"><br>--%>
     <input type="submit">
 </form>
 
@@ -39,5 +39,33 @@
     用户的电话：<input type="text" name="user.phone"><br>
     <input type="submit">
 </form>
+
+
+<form action="user/testParam" method="post">
+    姓名：<input type="text" name="cName"><br>
+    <input type="submit">
+</form>
+
+<form action="user/say" method="post">
+    姓名：<input type="text" name="cName"><br>
+    <input type="submit">
+</form>
+
+<a href="user/sayTest/200">click here</a>
+<a href="user/cookieTest">CookieTest here</a>
+<a href="user/save">save here</a>
+<a href="user/getSession">get session here</a>
+<a href="user/deleteSession">delete session here</a>
+
+<a href="user/voidTest">void here</a>
+<br>
+<a href="user/modelView">model View</a>
+
+<br>
+<a href="user/forwardtest">forward </a>
+<br>
+<a href="user/redirect">redirect</a>
+
+<br>
 </body>
 </html>
