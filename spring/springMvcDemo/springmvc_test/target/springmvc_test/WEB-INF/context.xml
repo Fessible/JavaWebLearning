@@ -22,9 +22,15 @@
         </property>
     </bean>
 
-<!--    开启spring对mvc注解的支持-->
+    <!--    开启spring对mvc注解的支持-->
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
-<!--    设置静态资源不过滤-->
+    <!--    设置静态资源不过滤-->
     <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
     <mvc:resources mapping="/images/**" location="/images/"></mvc:resources>
+
+    <!--    配置文件解析器对象，要求id名必须为multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--        限制文件大小-->
+        <property name="maxUploadSize" value="10485760"></property>
+    </bean>
 </beans>

@@ -16,5 +16,16 @@
     <input type="submit">
 </form>
 
+<form action="fileupload2" method="post" enctype="multipart/form-data">
+    <input type="file" name="upload">
+    <input type="submit">
+</form>
+
+
+<form action="fileupload3" method="post" enctype="multipart/form-data">
+    <input type="file" name="upload">
+    <input type="submit">
+</form>
+
 </body>
 </html>

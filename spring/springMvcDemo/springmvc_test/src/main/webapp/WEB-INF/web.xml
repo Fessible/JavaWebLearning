@@ -4,6 +4,7 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
+
     <!--  配置springmvc dispatcherServlet,前端控制器-->
     <servlet>
         <servlet-name>springmvc</servlet-name>
