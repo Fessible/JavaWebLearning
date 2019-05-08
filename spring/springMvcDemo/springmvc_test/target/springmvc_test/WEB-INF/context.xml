@@ -33,4 +33,7 @@
         <!--        限制文件大小-->
         <property name="maxUploadSize" value="10485760"></property>
     </bean>
+
+<!--    配置异常处理器-->
+    <bean id="sysException" class="cn.rhm.execption.SyExceptionHandler"/>
 </beans>

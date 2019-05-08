@@ -67,5 +67,8 @@
 <a href="user/redirect">redirect</a>
 
 <br>
+<a href="testException">testException</a>
+
+<br>
 </body>
 </html>
