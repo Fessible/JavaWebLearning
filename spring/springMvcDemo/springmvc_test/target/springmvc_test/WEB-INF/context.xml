@@ -36,4 +36,22 @@
 
 <!--    配置异常处理器-->
     <bean id="sysException" class="cn.rhm.execption.SyExceptionHandler"/>
+
+<!--    配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+<!--            要拦截的具体方法-->
+            <mvc:mapping path="/user/*"/>
+            
+<!--            不要拦截的方法-->
+<!--            <mvc:exclude-mapping path=""/>-->
+            <bean id="interceptorDemo" class="cn.rhm.utils.interceptHandlerDemo"></bean>
+        </mvc:interceptor>
+<!--        第二个拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="interceptorDemo2" class="cn.rhm.utils.interceptHandlerDemo2"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

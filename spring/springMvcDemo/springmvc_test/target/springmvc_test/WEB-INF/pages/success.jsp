@@ -16,6 +16,8 @@
 
 ${user.username}
 ${user.phone}
-
+<%
+    System.out.println("Success!");
+%>
 </body>
 </html>
