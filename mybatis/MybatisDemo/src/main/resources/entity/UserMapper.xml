@@ -4,7 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--自定义名字-->
 <mapper namespace="cn.mybatis.entity.UserMapper">
-    <select id="findById" resultType="usertest" databaseId="oracle">
+    <select id="findById" resultType="usertest">
     select * from user where uid = #{id}
   </select>
+
+    <delete id="delete">
+        delete from user where  uid = #{id}
+    </delete>
+
+    <!--    parameterType可以省略-->
+    <insert id="addUser" parameterType="usertest">
+        insert  into user (username,password,address) values(#{username},#{password},#{address})
+    </insert>
+
+    <update id="update">
+
+        update  user set username = #{username},address=#{address} where id = #{id}
+
+    </update>
+
 </mapper>

@@ -36,8 +36,8 @@
     </databaseIdProvider>
 
     <mappers>
-<!--        <mapper resource="entity/UserMapper.xml"/>-->
-        <mapper class="cn.mybatis.entity.UserMapper"/>
+        <mapper resource="entity/UserMapper.xml"/>
+<!--        <mapper class="cn.mybatis.entity.UserMapper"/>-->
     </mappers>
 
 </configuration>
