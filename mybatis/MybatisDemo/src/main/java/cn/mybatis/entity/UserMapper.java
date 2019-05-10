@@ -7,7 +7,7 @@ public interface UserMapper {
     //    @Select("select * from user where uid =#{id}")
     User findById(int i);
 
-    void addUser(User user);
+    int addUser(User user);
 
     void delete(int i);
 

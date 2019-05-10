@@ -51,15 +51,21 @@ public class TestMybatis {
 
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             //add
-//            User user = new User();
-//            user.setAddress("少林寺");
-//            user.setPassword("13333");
-//            user.setUsername("小情哥哥");
-//            userMapper.addUser(user);
+            User user = new User();
+            user.setAddress("诶对了聊得来");
+            user.setPassword("121343");
+            user.setUsername("小红");
+            userMapper.addUser(user);
+
+            System.out.println(user.getUid());
 //
             //delete
-            userMapper.delete(2);
+//            userMapper.delete(2);
 
+            //update
+//            User user = userMapper.findById(1);
+//            user.setAddress("小黄人");
+//            userMapper.update(user);
 
             sqlSession.commit();
 

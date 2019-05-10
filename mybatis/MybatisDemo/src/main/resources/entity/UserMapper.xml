@@ -12,15 +12,13 @@
         delete from user where  uid = #{id}
     </delete>
 
-    <!--    parameterType可以省略-->
-    <insert id="addUser" parameterType="usertest">
+    <!--    parameterType可以省略，useGeneratedKeys表示使用自增值，keyProperty表示存储到uid中-->
+    <insert id="addUser" parameterType="usertest" useGeneratedKeys="true" keyProperty="uid" >
         insert  into user (username,password,address) values(#{username},#{password},#{address})
     </insert>
 
     <update id="update">
-
-        update  user set username = #{username},address=#{address} where id = #{id}
-
+        update  user set username = #{username},address=#{address} where uid = #{uid}
     </update>
 
 </mapper>
