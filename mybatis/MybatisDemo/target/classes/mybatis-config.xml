@@ -5,12 +5,13 @@
 <configuration>
 
     <properties resource="config.properties"/>
-
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
     <typeAliases>
-<!--        <typeAlias type="cn.mybatis.entity.User" alias="user"/>-->
-<!--       批量设置， 默认别名为类名的小写-->
+        <!--        <typeAlias type="cn.mybatis.entity.User" alias="user"/>-->
+        <!--       批量设置， 默认别名为类名的小写-->
         <package name="cn.mybatis"/>
-
     </typeAliases>
 
     <!--    配置mybatis的环境-->
@@ -32,12 +33,11 @@
     <databaseIdProvider type="DB_VENDOR">
         <property name="SQL Server" value="sqlserver"/>
         <property name="DB2" value="db2"/>
-        <property name="Oracle" value="oracle" />
+        <property name="Oracle" value="oracle"/>
     </databaseIdProvider>
 
     <mappers>
         <mapper resource="entity/UserMapper.xml"/>
-<!--        <mapper class="cn.mybatis.entity.UserMapper"/>-->
+        <!--        <mapper class="cn.mybatis.entity.UserMapper"/>-->
     </mappers>
-
 </configuration>

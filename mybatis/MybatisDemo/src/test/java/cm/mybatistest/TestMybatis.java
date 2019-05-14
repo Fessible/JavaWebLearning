@@ -12,6 +12,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 
 public class TestMybatis {
 
@@ -66,6 +68,43 @@ public class TestMybatis {
 //            User user = userMapper.findById(1);
 //            user.setAddress("小黄人");
 //            userMapper.update(user);
+
+            sqlSession.commit();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            //关闭
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testParam() {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        SqlSession sqlSession = null;
+
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            sqlSession = sqlSessionFactory.openSession();
+
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+//            User user = userMapper.findByIdAndUsername(1, "小明");
+//            System.out.println(user);
+
+            //返回list
+//            List<User> users = userMapper.findByUserLikeName("%小%");
+//            System.out.println(users);
+
+//            Map<String, Object> userMap = userMapper.getByMap(1);
+//            System.out.println("结果： "+userMap);
+//            Map<Integer, User> map = userMapper.getMapByName("%小%");
+//            System.out.println(map);
+
+            User user = userMapper.getByResultMap(1);
+            System.out.println(user);
 
             sqlSession.commit();
 

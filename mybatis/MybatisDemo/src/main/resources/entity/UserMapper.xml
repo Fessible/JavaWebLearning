@@ -21,4 +21,34 @@
         update  user set username = #{username},address=#{address} where uid = #{uid}
     </update>
 
+    <select id="findByIdAndUsername" resultType="usertest">
+        select * from user where uid=#{id} and username=#{username}
+    </select>
+
+    <select id="findByUserLikeName" resultType="usertest">
+        select * from user where username like #{name}
+    </select>
+
+    <select id="getByMap" resultType="map">
+        select * from user where uid =#{id}
+    </select>
+
+<!--    column为table的列，property为javabean的属性-->
+    <resultMap id="userMap" type="usertest">
+        <id column="uid" property="uid"></id>
+        <result column="address" property="address"></result>
+        <result column="username" property="username"></result>
+        <result column="class_name" property="clazz.className"></result>
+        <result column="cid" property="clazz.id"></result>
+    </resultMap>
+    
+    
+    <select id="getMapByName" resultMap="map">
+        select * from user where username like #{name}
+    </select>
+
+    <select id="getByResultMap" resultMap="userMap">
+        SELECT u.uid,u.address,u.username,t.class_name,u.cid FROM t_class t,user u  WHERE u.cid =t.id and u.uid =#{id};
+    </select>
+
 </mapper>
