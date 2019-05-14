@@ -12,8 +12,6 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
-import java.util.Map;
 
 public class TestMybatis {
 
@@ -103,7 +101,7 @@ public class TestMybatis {
 //            Map<Integer, User> map = userMapper.getMapByName("%小%");
 //            System.out.println(map);
 
-            User user = userMapper.getByResultMap(1);
+            User user = userMapper.findById(2);
             System.out.println(user);
 
             sqlSession.commit();
@@ -114,6 +112,26 @@ public class TestMybatis {
             //关闭
             sqlSession.close();
         }
+    }
 
+    @Test
+    public void testMap() {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        SqlSession sqlSession = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            sqlSession = sqlSessionFactory.openSession();
+
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            User user = userMapper.getUser(2);
+            System.out.println(user);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
     }
 }

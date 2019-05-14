@@ -28,4 +28,6 @@ public interface UserMapper {
     Map<Integer, User> getMapByName(String name);
 
     User getByResultMap(int id);
+
+    User getUser(int id);
 }
