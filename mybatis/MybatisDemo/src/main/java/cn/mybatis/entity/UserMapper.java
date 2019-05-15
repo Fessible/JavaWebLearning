@@ -30,4 +30,12 @@ public interface UserMapper {
     User getByResultMap(int id);
 
     User getUser(int id);
+
+    User getUserAndClazz(int id);
+
+    User getByCase(int id);
+
+    Clazz getByClazz(int id);
+
+    Clazz getByStept(int id);
 }
