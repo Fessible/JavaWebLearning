@@ -11,11 +11,20 @@ public class User implements Serializable {
     private String username;
     private String address;
     private String password;
-//    private Clazz clazz;
-//
-//    public Clazz getClazz() {
-//        return clazz;
-//    }
+    private Clazz clazz;
+    private Integer gender;
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public Clazz getClazz() {
+        return clazz;
+    }
 
     @Override
     public String toString() {
@@ -24,13 +33,13 @@ public class User implements Serializable {
                 ", username='" + username + '\'' +
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
-//                ", clazz=" + clazz +
+                ", clazz=" + clazz +
                 '}';
     }
 
-//    public void setClazz(Clazz clazz) {
-//        this.clazz = clazz;
-//    }
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
+    }
 
     public Integer getUid() {
         return uid;

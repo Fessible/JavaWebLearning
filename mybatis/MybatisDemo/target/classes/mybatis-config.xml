@@ -7,6 +7,7 @@
     <properties resource="config.properties"/>
     <settings>
         <setting name="jdbcTypeForNull" value="NULL"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
         <!--        <typeAlias type="cn.mybatis.entity.User" alias="user"/>-->
@@ -37,7 +38,8 @@
     </databaseIdProvider>
 
     <mappers>
-        <mapper resource="entity/UserMapper.xml"/>
+<!--        <mapper resource="entity/UserMapper.xml"/> -->
+        <mapper resource="entity/UserMapper2.xml"/>
         <!--        <mapper class="cn.mybatis.entity.UserMapper"/>-->
     </mappers>
 </configuration>

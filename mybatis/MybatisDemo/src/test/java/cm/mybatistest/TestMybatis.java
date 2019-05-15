@@ -1,5 +1,6 @@
 package cm.mybatistest;
 
+import cn.mybatis.entity.Clazz;
 import cn.mybatis.entity.User;
 import cn.mybatis.entity.UserMapper;
 import org.apache.ibatis.io.Resources;
@@ -125,8 +126,13 @@ public class TestMybatis {
             sqlSession = sqlSessionFactory.openSession();
 
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            User user = userMapper.getUser(2);
-            System.out.println(user);
+//            User user = userMapper.getUserAndClazz(2);
+//            System.out.println(user);
+//            Clazz clazz = userMapper.getByClazz(1);
+//            Clazz clazz = userMapper.getByStept(1);
+//            System.out.println(clazz);
+
+            System.out.println(userMapper.getByCase(1));
 
         } catch (IOException e) {
             e.printStackTrace();
