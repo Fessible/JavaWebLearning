@@ -39,6 +39,7 @@
     <mappers>
 <!--        <mapper resource="entity/UserMapper.xml"/> -->
         <mapper resource="entity/UserMapper2.xml"/>
+        <mapper resource="entity/UserMapper3.xml"/>
         <!--        <mapper class="cn.mybatis.entity.UserMapper"/>-->
     </mappers>
 </configuration>
