@@ -17,4 +17,6 @@ public interface UserSqlMapper {
 
     List<User> getByForEach(List<Integer> list);
 
+    //批量保存
+    public void addUser(@Param("users") List<User> users);
 }

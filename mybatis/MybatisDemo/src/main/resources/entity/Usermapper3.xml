@@ -61,4 +61,20 @@
             #{item}
         </foreach>
     </select>
+
+<!--     public void addUser(@Param("users") List<User> users);-->
+    <insert id="addUser">
+        insert into user
+        <include refid="insertColumn" ></include>
+--         (username,password,address)
+        values
+        <foreach collection="users" separator="," item="user">
+            (#{user.username},#{user.password},#{user.address})
+        </foreach>
+    </insert>
+
+    <sql id="insertColumn">
+        <if test="_databaseId='mysql'">(username,password,address)</if>
+        <if test="databaseId='oracle'"></if>
+    </sql>
 </mapper>
