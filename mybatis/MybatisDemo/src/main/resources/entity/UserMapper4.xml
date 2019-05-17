@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.mybatis.entity.UserCacheMapper">
     <cache flushInterval="6000" readOnly="false" size="1024"></cache>
-    <select id="findById" resultType="usertest" >
+    <select id="findById" resultType="usertest" flushCache="false">
         select * from user where uid=#{uid}
     </select>
 

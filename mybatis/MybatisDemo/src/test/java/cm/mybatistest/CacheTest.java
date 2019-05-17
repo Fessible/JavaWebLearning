@@ -28,6 +28,7 @@ public class CacheTest {
             UserCacheMapper mapper = sqlSession1.getMapper(UserCacheMapper.class);
 
             User user = userMapper.findById(1);
+            sqlSession.clearCache();
             sqlSession.close();
 
             User user2 = mapper.findById(1);
