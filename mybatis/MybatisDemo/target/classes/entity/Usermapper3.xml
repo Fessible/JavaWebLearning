@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mybatis.entity.UserSqlMapper">
+    <select id="findByIdAndNameAndAddress" resultType="usertest">
+        select * from user
+
+        <trim prefix="where " suffixOverrides="and">
+            <if test="id!=null">
+                uid =#{id} and
+            </if>
+            <if test="username!=null and username!=''">
+                username like #{username} and
+            </if>
+            <if test="address">
+                address like #{address}
+            </if>
+        </trim>
+    </select>
+
+    <select id="findByChoose" resultType="usertest">
+        select * from user where
+        <choose>
+            <when test="uid!=null">
+                uid =#{uid}
+            </when>
+            <when test="username!=null">
+                username like #{username}
+            </when>
+            <otherwise>
+                address like '%小%'
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--         void update(User user);-->
+    <update id="update">
+        update user
+        <set>
+            <if test="username!=null">username =#{username},</if>
+            <if test="password!=null">password =#{password},</if>
+            <if test="address!=null">address=#{address}</if>
+        </set>
+        where uid = #{uid}
+    </update>
+
+    <update id="update2">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username!=null">username =#{username},</if>
+            <if test="password!=null">password =#{password},</if>
+            <if test="address!=null">address=#{address}</if>
+        </trim>
+        where uid = #{uid}
+    </update>
+
+    <select id="getByForEach" resultType="usertest">
+        select * from user where uid in
+        <foreach collection="list" open="(" close=")" item="item" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
+<!--     public void addUser(@Param("users") List<User> users);-->
+    <insert id="addUser">
+        insert into user
+        <include refid="insertColumn" ></include>
+--         (username,password,address)
+        values
+        <foreach collection="users" separator="," item="user">
+            (#{user.username},#{user.password},#{user.address})
+        </foreach>
+    </insert>
+
+    <sql id="insertColumn">
+        <if test="_databaseId='mysql'">(username,password,address)</if>
+        <if test="databaseId='oracle'"></if>
+    </sql>
+</mapper>
