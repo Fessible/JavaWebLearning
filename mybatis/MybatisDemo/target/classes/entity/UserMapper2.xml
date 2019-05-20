@@ -17,5 +17,102 @@
         select * from t_user where  uid = #{id}
     </select>
 
-<!--    级联操作-->
+    <!--    级联操作-->
+    <select id="getUserAndClazz" resultMap="userDiffMap3">
+        select * from user u,t_class t where u.cid = t.id and u.uid =#{id}
+    </select>
+
+    <resultMap id="userDiffMap" type="usertest">
+        <id column="uid" property="uid"/>
+        <result column="address" property="address"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="cid" property="clazz.id"/>
+        <result column="class_name" property="clazz.className"/>
+    </resultMap>
+
+    <resultMap id="userDiffMap2" type="usertest">
+        <id column="uid" property="uid"/>
+        <result column="address" property="address"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <association property="clazz" javaType="cn.mybatis.entity.Clazz">
+            <id property="id" column="cid"/>
+            <result property="clazzName" column="className"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="userDiffMap3" type="usertest">
+        <id column="uid" property="uid"/>
+        <result column="address" property="address"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <association property="clazz" select="cn.mybatis.entity.UserMapper.getByStep"
+                     column="cid">
+        </association>
+    </resultMap>
+
+    <select id="getByStep" resultType="Clazz">
+        select * from t_class where id =#{id}
+    </select>
+
+    <!--     Clazz getByClazz(int id);-->
+    <select id="getByClazz" resultMap="byClazz">
+    select * from t_class t left join user u on t.id = u.cid where t.id =#{id}
+    </select>
+
+    <resultMap id="byClazz" type="cn.mybatis.entity.Clazz">
+        <id property="id" column="id"/>
+        <result property="className" column="class_name"/>
+        <!--        使用collection定义关联集合类型属性-->
+        <collection property="users" ofType="usertest">
+            <id property="uid" column="uid"/>
+            <result column="address" property="address"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+        </collection>
+    </resultMap>
+
+    <!--        Clazz getByStept(int id);-->
+    <select id="getByStept" resultMap="byStept">
+        select * from t_class where id =#{id}
+    </select>
+
+    <resultMap id="byStept" type="cn.mybatis.entity.Clazz">
+        <id column="id" property="id"/>
+        <result property="className" column="class_name"/>
+        <collection property="users" select="cn.mybatis.entity.UserMapper.getUsers"
+        column="id">
+
+        </collection>
+    </resultMap>
+
+    <select id="getUsers" resultType="usertest">
+        select * from user where cid =#{id}
+    </select>
+
+    <resultMap id="userCase" type="usertest">
+        <id column="uid" property="uid"/>
+        <result column="address" property="address"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <discriminator javaType="Integer" column="gender">
+            <case value="0" resultType="usertest">
+                <association property="clazz" select="cn.mybatis.entity.UserMapper.getByStep"
+                             column="cid">
+                </association>
+            </case>
+            <case value="1" resultType="usertest">
+                <id column="uid" property="uid"/>
+                <result column="address" property="address"/>
+                <result column="username" property="address"/>
+                <result column="password" property="password"/>
+            </case>
+        </discriminator>
+    </resultMap>
+
+    <!--    级联操作-->
+    <select id="getByCase" resultMap="userCase">
+        select * from user u,t_class t where u.cid = t.id and u.uid =#{id}
+    </select>
 </mapper>
