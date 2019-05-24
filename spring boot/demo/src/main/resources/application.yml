@@ -1,0 +1,14 @@
+#person:
+#  name: Lisi
+#  age: 12
+#
+#  friends:
+#    - 熊红
+#    - 校长
+#  dog:
+#    name: xiaogou
+#    age: 10
+
+spring:
+  profiles:
+    active: dev
