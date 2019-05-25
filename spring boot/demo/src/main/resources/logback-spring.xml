@@ -1,0 +1,54 @@
+<configuration>
+
+    <!-- 定义日志的根目录 -->
+    <property name="LOG_HOME" value="/Users/rhm/"/>
+    <!-- 定义日志文件名称 -->
+    <property name="appName" value="demo"></property>
+
+    <!--    输出到控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <springProfile name="dev">
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} ===> %msg%n</pattern>
+            </springProfile>
+
+            <springProfile name="!dev">
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -----> %msg%n</pattern>
+            </springProfile>
+
+        </encoder>
+    </appender>
+
+    <!--    输出到文件-->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--        <file>demo.log</file>-->
+        <file>${LOG_HOME}${appName}.log</file>
+
+        <!--        设置滚动-->　
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            　　　　　　　　　
+            <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            　　　　　　　　　
+            <maxHistory>30</maxHistory>
+            　　　　　　
+        </rollingPolicy>
+
+        <!--        <append>true</append>-->
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            　　　　　　　　　　
+            <maxFileSize>5MB</maxFileSize>
+            　　　　　　
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} ===> %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
