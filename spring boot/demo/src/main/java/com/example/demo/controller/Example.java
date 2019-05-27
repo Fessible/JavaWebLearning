@@ -30,10 +30,9 @@ public class Example {
         return "success";
     }
 
-    @RequestMapping(value = "/greeting")
+    @RequestMapping(value = "/,/login.html")
     public ModelAndView test(ModelAndView mv) {
-        mv.setViewName("/greeting");
-        mv.addObject("title", "欢迎使用Thymeleaf!");
+        mv.setViewName("/login");
         return mv;
     }
 

@@ -12,3 +12,10 @@
 spring:
   profiles:
     active: dev
+
+  messages:
+    basename: i18n.login
+server:
+  servlet:
+    context-path: /webtest
+
