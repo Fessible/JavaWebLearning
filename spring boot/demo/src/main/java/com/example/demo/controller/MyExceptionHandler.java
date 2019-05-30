@@ -24,15 +24,17 @@ public class MyExceptionHandler {
 //    }
 
 
-
     @ExceptionHandler(MyException.class)
     public String handleException(HttpServletRequest request) {
         //传入错误的状态码
-        request.setAttribute("javax.servlet.error.status_code",500);
+        request.setAttribute("javax.servlet.error.status_code", 500);
 
         Map<String, Object> map = new HashMap<>();
         map.put("code", "user.notExist");
         map.put("message", "用户不存在");
+
+        request.setAttribute("ext", map);
+
         return "forward:/error";
     }
 }

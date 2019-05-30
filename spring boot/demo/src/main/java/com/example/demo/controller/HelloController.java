@@ -1,16 +1,23 @@
 package com.example.demo.controller;
 
+import com.example.demo.execption.MyException;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
 @Controller
 public class HelloController {
 
-    @RequestMapping("/helloworld")
-    public String hello(Map<String,Object> map){
-        map.put("hello", "你好");
-        return "successful";
+    @GetMapping("/hello")
+    @ResponseBody
+    public String Hello(@RequestParam("user") String user) {
+        if (user.equals("aaa")) {
+            throw new MyException();
+        }
+        return "hello";
     }
 }
