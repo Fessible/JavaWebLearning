@@ -1,7 +1,7 @@
 <configuration>
 
     <!-- 定义日志的根目录 -->
-    <property name="LOG_HOME" value="/Users/rhm/"/>
+<property name="LOG_HOME" value="/Users/rhm/"/>
     <!-- 定义日志文件名称 -->
     <property name="appName" value="demo"></property>
 
@@ -22,14 +22,17 @@
     </appender>
 
     <!--    输出到文件-->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="FileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--        <file>demo.log</file>-->
-        <file>${LOG_HOME}${appName}.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <file>${LOG_HOME}${appName}Error.log</file>
 
         <!--        设置滚动-->　
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             　　　　　　　　　
-            <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logFile.%d{yyyy-MM-dd}Error.log</fileNamePattern>
             　　　　　　　　　
             <maxHistory>30</maxHistory>
             　　　　　　
@@ -47,8 +50,41 @@
         </encoder>
     </appender>
 
+    <appender name="FileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <!--        <file>demo.log</file>-->
+        <file >${LOG_HOME}${appName}Info.log</file>
+
+        <!--        设置滚动-->　
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            　　　　　　　　　
+            <fileNamePattern>logFile.%d{yyyy-MM-dd}Info.log</fileNamePattern>
+            　　　　　　　　　
+            <maxHistory>30</maxHistory>
+            　　　　　　
+        </rollingPolicy>
+
+        <!--        <append>true</append>-->
+
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            　　　　　　　　　　
+            <maxFileSize>5MB</maxFileSize>
+            　　　　　　
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} ===> %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
     <root level="info">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FILE"/>
+        <appender-ref ref="FileErrorLog"/>
+        <appender-ref ref="FileInfoLog"/>
+
     </root>
 </configuration>
