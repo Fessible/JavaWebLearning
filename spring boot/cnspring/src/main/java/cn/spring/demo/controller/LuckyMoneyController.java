@@ -4,8 +4,11 @@ import cn.spring.demo.entity.LuckyMoney;
 import cn.spring.demo.repository.LuckyMoneyRepository;
 import cn.spring.demo.service.LuckyMoneyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +39,15 @@ public class LuckyMoneyController {
         luckyMoney.setMoney(money);
         luckyMoney.setConsumer(consumer);
         luckyMoney.setProducer(producer);
+        return luckyMoneyRepository.save(luckyMoney);
+    }
+
+    @PostMapping("/give")
+    public LuckyMoney give(@Valid LuckyMoney luckyMoney, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+            return null;
+        }
         return luckyMoneyRepository.save(luckyMoney);
     }
 

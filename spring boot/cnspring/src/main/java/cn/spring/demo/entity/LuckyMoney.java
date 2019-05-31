@@ -3,6 +3,7 @@ package cn.spring.demo.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 
 @Entity
@@ -12,6 +13,7 @@ public class LuckyMoney {
     @GeneratedValue
     private Integer id;
 
+    @Min(value = 50,message = "红包最小50元")
     private BigDecimal money;
 
     /**
