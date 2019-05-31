@@ -1,10 +1,12 @@
 package cn.spring.demo.controller;
 
+import cn.spring.demo.entity.ErrorResult;
 import cn.spring.demo.entity.LuckyMoney;
+import cn.spring.demo.entity.Result;
 import cn.spring.demo.repository.LuckyMoneyRepository;
 import cn.spring.demo.service.LuckyMoneyService;
+import cn.spring.demo.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,12 +45,14 @@ public class LuckyMoneyController {
     }
 
     @PostMapping("/give")
-    public LuckyMoney give(@Valid LuckyMoney luckyMoney, BindingResult bindingResult) {
+    public ErrorResult give(@Valid LuckyMoney luckyMoney, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
-            return null;
+//            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+//            return null;
+
+            return ResultUtils.Error(1, bindingResult.getFieldError().getDefaultMessage());
         }
-        return luckyMoneyRepository.save(luckyMoney);
+        return ResultUtils.success(luckyMoneyRepository.save(luckyMoney));
     }
 
 
@@ -80,6 +84,12 @@ public class LuckyMoneyController {
     @GetMapping("/luckyMoneys/two")
     public void creatTwo() {
         service.createTwo();
+    }
+
+
+    @GetMapping("/getMoney/{money}")
+    public ErrorResult getMoney(@PathVariable("money") BigDecimal money) {
+        return service.getMoney(money);
     }
 
 }

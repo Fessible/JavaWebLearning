@@ -20,7 +20,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
         return new WebServerFactoryCustomizer<ConfigurableServletWebServerFactory>() {
             @Override
             public void customize(ConfigurableServletWebServerFactory factory) {
-                factory.setPort(8083);
+//                factory.setPort(8083);
             }
         };
     }
