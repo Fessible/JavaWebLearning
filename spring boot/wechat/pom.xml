@@ -30,6 +30,12 @@
             <scope>test</scope>
         </dependency>
 
+<!--        添加插件-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
 <!--        数据库-->
         <dependency>
             <groupId>mysql</groupId>
