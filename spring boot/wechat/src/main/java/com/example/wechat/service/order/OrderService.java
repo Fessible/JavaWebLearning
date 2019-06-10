@@ -2,8 +2,8 @@ package com.example.wechat.service.order;
 
 import com.example.wechat.dto.OrderDTO;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.awt.print.Pageable;
 
 public interface OrderService {
 

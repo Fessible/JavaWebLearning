@@ -1,6 +1,7 @@
 package com.example.wechat.service.info;
 
 import com.example.wechat.dao.ProductInfo;
+import com.example.wechat.dto.CartDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,4 +18,11 @@ public interface ProductInfoService {
     List<ProductInfo> findUpAll();
 
     ProductInfo save(ProductInfo productInfo);
+
+    //加库存
+    void increaseStock(List<CartDTO> cartDTOList);
+
+    //减库存
+    void decreaseStock(List<CartDTO> cartDTOList);
+
 }

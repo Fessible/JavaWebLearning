@@ -3,16 +3,19 @@ package com.example.wechat.dto;
 import com.example.wechat.dao.OrderDetail;
 import com.example.wechat.enums.OrderStatusEnum;
 import com.example.wechat.enums.PayStatusEnum;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * api中对应的值
+ */
+@Data
 public class OrderDTO {
+
+    private String orderId;
 
     private String buyerName;
 
