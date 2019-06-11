@@ -2,6 +2,9 @@ package com.example.wechat.service.order;
 
 import com.example.wechat.dao.OrderDetail;
 import com.example.wechat.dto.OrderDTO;
+import com.example.wechat.enums.OrderStatusEnum;
+import com.example.wechat.enums.PayStatusEnum;
+import org.hibernate.criterion.Order;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,7 +59,7 @@ public class OrderServiceImpTest {
     public void findList() {
         PageRequest pageRequest = new PageRequest(0, 2);
         Page<OrderDTO> list = orderServiceImp.findList(openId, pageRequest);
-        Assert.assertNotEquals(0,list.getTotalElements());
+        Assert.assertNotEquals(0, list.getTotalElements());
     }
 
     @Test
@@ -68,9 +71,17 @@ public class OrderServiceImpTest {
 
     @Test
     public void finish() {
+        OrderDTO one = orderServiceImp.findOne("156014566952994437");
+        OrderDTO finish = orderServiceImp.finish(one);
+        Integer code = OrderStatusEnum.FINISH.getCode();
+        Assert.assertEquals(code, finish.getOrderStatus());
     }
 
     @Test
     public void paid() {
+        OrderDTO one = orderServiceImp.findOne("156014570146694036");
+        OrderDTO paid = orderServiceImp.paid(one);
+        Integer code = PayStatusEnum.SUCCESS.getCode();
+        Assert.assertEquals(code,paid.getPayStatus());
     }
 }
